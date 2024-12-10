@@ -8,23 +8,48 @@ class SubScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('서브 화면'),
-      ),
-      body: Column(
-        children: [
-          Center(
-            child: Text('서브화면 입니다. $msg'),
+    return DefaultTabController(
+      length: 3,
+      child: Scaffold(
+          appBar: AppBar(
+            backgroundColor: Colors.black,
+            elevation: 0,
+            automaticallyImplyLeading: false,
+            leading: TextButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                child: const Text(
+                  '뒤로가기',
+                  style: TextStyle(color: Colors.blue),
+                )),
+            title: const Text('서브 화면'),
+            actions: const [
+              Icon(Icons.ac_unit_outlined),
+            ],
+            bottom: const TabBar(tabs: [
+              Tab(
+                text: 'Tab 1',
+              ),
+              Tab(
+                text: 'Tab 2',
+              ),
+              Tab(
+                text: 'Tab 3',
+              ),
+            ]),
           ),
-          TextButton(
-              onPressed: () {
-                // 현재 화면 스택 제거
-                Navigator.pop(context);
-              },
-              child: Text('뒤로가기'))
-        ],
-      ),
+          body: const TabBarView(children: [
+            Center(
+              child: Text('Tab 1 Content'),
+            ),
+            Center(
+              child: Text('Tab 2 Content'),
+            ),
+            Center(
+              child: Text('Tab 3 Content'),
+            ),
+          ])),
     );
   }
 }
