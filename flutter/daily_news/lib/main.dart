@@ -1,3 +1,6 @@
+import 'package:daily_news/screen/detail_screen.dart';
+import 'package:daily_news/screen/main_screen.dart';
+import 'package:daily_news/screen/spalsh_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -11,10 +14,21 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
+      title: 'Daily News',
       routes: {
         '/': (context) => SplashScreen(),
         '/main': (context) => MainScreen(),
+      },
+      onGenerateRoute: (settings) {
+        if (settings.name == '/detail') {
+          dynamic newsItem = settings.arguments as dynamic;
+          return MaterialPageRoute(
+            builder: (context) {
+              return DetailScreen(newsItem: newsItem);
+            },
+          );
+        }
       },
     );
   }
