@@ -35,7 +35,3 @@ subpar
 
 mediocre
 - 평벙함
-
-<br>
-
-
