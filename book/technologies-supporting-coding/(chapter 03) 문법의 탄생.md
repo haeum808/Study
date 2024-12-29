@@ -86,6 +86,7 @@ Java, Python, Ruby 1.9 등은 스택 머신 형의 VM을 사용하고 있다.
 FORTH와 LISP의 구문 트리를 비교해보도록 하자.  
 구문 트리는 동일하다. 동일한 구조를 사용해서 '하고자 하는 것'을 표현하고 있다.
 
+![image](https://github.com/user-attachments/assets/d00c2f30-ee5c-41cb-a2bb-fcdee062dd29)
 
 ## 중위 표기법
 
