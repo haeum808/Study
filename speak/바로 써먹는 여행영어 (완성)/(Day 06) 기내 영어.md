@@ -24,3 +24,11 @@ I'm sorry, but could you pull down the blind, please?
 
 arrival card
 - [명사] 입국신고서
+
+<br>
+
+be quiet
+- 명령조로 들릴 수 있음
+
+keep it down a little
+- 조그만 조용히 해달라는 부탁
