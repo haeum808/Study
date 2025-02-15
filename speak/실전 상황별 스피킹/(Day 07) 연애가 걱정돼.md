@@ -83,7 +83,3 @@ mental health
 
 travel ban
 - 입출국 금지령
-
-<br>
-
-
