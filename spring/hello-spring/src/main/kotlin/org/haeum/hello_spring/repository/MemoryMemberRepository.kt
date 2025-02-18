@@ -1,7 +1,9 @@
 package org.haeum.hello_spring.repository
 
 import org.haeum.hello_spring.domain.Member
+import org.springframework.stereotype.Repository
 
+@Repository
 class MemoryMemberRepository: MemberRepository {
     override fun save(member: Member): Member {
         member.id = ++sequence
