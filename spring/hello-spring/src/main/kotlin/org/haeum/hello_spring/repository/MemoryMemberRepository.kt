@@ -21,6 +21,10 @@ class MemoryMemberRepository: MemberRepository {
         return store.values.toList()
     }
 
+    fun clearStore() {
+        store.clear()
+    }
+
     companion object {
         private val store = HashMap<Long, Member>()
         private var sequence: Long = 0L;
