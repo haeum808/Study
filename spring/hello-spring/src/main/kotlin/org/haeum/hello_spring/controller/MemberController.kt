@@ -7,6 +7,4 @@ import org.springframework.stereotype.Controller
 @Controller
 class MemberController(
     @Autowired private val memberService: MemberService,
-) {
-
-}
+)
