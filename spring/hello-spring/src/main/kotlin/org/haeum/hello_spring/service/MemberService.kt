@@ -2,10 +2,10 @@ package org.haeum.hello_spring.service
 
 import org.haeum.hello_spring.domain.Member
 import org.haeum.hello_spring.repository.MemberRepository
-import org.haeum.hello_spring.repository.MemoryMemberRepository
 
-class MemberService {
-    private val memberRepository: MemberRepository = MemoryMemberRepository()
+class MemberService(
+    private val memberRepository: MemberRepository
+) {
 
     fun join(member: Member): Long {
         validateDuplicateMember(member) // 중복 회원 검증
@@ -14,7 +14,7 @@ class MemberService {
     }
 
     private fun validateDuplicateMember(member: Member) {
-        memberRepository.findByName(member.name) ?: throw IllegalStateException("이미 존재하는 회원입니다.")
+        if (memberRepository.findByName(member.name) != null) throw IllegalStateException("이미 존재하는 회원입니다.")
     }
 
     fun findMembers(): List<Member> {
