@@ -1,6 +1,6 @@
 package org.haeum.hello_spring
 
-import org.haeum.hello_spring.repository.JdbcMemberRepository
+import org.haeum.hello_spring.repository.JdbcTemplateMemberRepository
 import org.haeum.hello_spring.repository.MemberRepository
 import org.haeum.hello_spring.service.MemberService
 import org.springframework.beans.factory.annotation.Autowired
@@ -20,6 +20,7 @@ class SpringConfig(
     @Bean
     fun memberRepository(): MemberRepository {
 //        return MemoryMemberRepository();
-        return JdbcMemberRepository(dataSource)
+//        return JdbcMemberRepository(dataSource)
+        return JdbcTemplateMemberRepository(dataSource)
     }
 }
