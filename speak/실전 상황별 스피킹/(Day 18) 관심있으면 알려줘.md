@@ -1,7 +1,7 @@
 ## Summary
 
 Let me know if you're interested.
-- 관ㅅ미 있으면 알려줘.
+- 관심 있으면 알려줘.
 
 <br>
 
