@@ -26,9 +26,11 @@ class MemberServiceIntegrationTest {
         // when
         val saveId = memberService.join(member)
 
+        println("saveId $saveId")
+
         // then
-        val findMember = memberService.findOne(saveId)!!
-        assertThat(member.name).isEqualTo(findMember.name)
+        val findMember = memberService.findOne(saveId)
+        assertThat(member.name).isEqualTo(findMember?.name)
     }
 
     @Test
