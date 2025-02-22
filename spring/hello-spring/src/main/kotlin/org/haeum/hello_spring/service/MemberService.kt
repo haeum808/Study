@@ -2,7 +2,9 @@ package org.haeum.hello_spring.service
 
 import org.haeum.hello_spring.domain.Member
 import org.haeum.hello_spring.repository.MemberRepository
+import org.springframework.transaction.annotation.Transactional
 
+@Transactional
 class MemberService(
     private val memberRepository: MemberRepository
 ) {

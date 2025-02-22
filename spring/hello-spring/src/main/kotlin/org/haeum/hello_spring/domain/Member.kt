@@ -1,3 +1,11 @@
 package org.haeum.hello_spring.domain
 
-data class Member(var id: Long = -1, var name: String = "")
+import jakarta.persistence.*
+
+@Entity
+data class Member(
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    var id: Long = -1,
+
+    var name: String = "",
+)
