@@ -24,7 +24,11 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background,
                 ) {
-                    SlotDemo(middleContent = { ButtonDemo() })
+                    SlotDemo(
+                        topContent = { Text("Top Text") },
+                        middleContent = { ButtonDemo() },
+                        bottomContent = { Text("Bottom Text") },
+                    )
                 }
             }
         }
