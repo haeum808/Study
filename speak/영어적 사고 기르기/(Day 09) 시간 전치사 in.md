@@ -49,3 +49,23 @@ in a bit
 
 in a second
 - 금세, 금방, 지금 바로
+
+<br>
+
+I can't wait to ~
+- [표현] 기대된다, 어서 빨리 ~하고 싶다.
+
+<br>
+
+get married
+- [표현] 결혼하다
+
+<br>
+
+probably
+- [부사] 아마도, 아마
+
+<br>
+
+last
+- [동사] 지속되다, 이어지다
