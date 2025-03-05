@@ -18,6 +18,13 @@ func lenAndUpper(name string) (int, string) {
 	return len(name), strings.ToUpper(name)
 }
 
+func lenAndUpper2(name string) (length int, uppercase string) {
+	defer fmt.Println("I'm done")
+	length = len(name)
+	uppercase = strings.ToUpper(name)
+	return
+}
+
 func repeatMe(words ...string) {
 	fmt.Println(words)
 }
@@ -43,6 +50,8 @@ func main() {
 	fmt.Println(totalLength, upperName)
 	totalLength2, _ := lenAndUpper("haeum")
 	fmt.Println(totalLength2)
+	totalLength2, upperName2 := lenAndUpper2("haeum")
+	fmt.Println(totalLength2, upperName2)
 
 	repeatMe("haeum", "haeum1", "haeum2", "haeum3", "haeum4")
 }
