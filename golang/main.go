@@ -1,12 +1,12 @@
 package main
 
 import (
-	// "Study/golang/something"
+	"Study/golang/something"
 	"fmt"
 )
 
 func main() {
-	// something.SayHello()
+	something.SayHello()
 	// something.sayBye() -> 소문자 시작은 private 취급
 
 	const name string = "haeum"
@@ -15,7 +15,7 @@ func main() {
 	var name2 string = "haeum"
 	name2 = "haeum2"
 	fmt.Println(name2)
-	name3 := "haeum" // 타입 추론
+	name3 := "haeum" // 타입 추론, 뱐수만 가능, 함수 내에서만 가능
 	name3 = "haeum2"
 	fmt.Println(name3)
 }
