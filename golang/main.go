@@ -109,4 +109,14 @@ func main() {
 	b3 := &a3
 	*b3 = 20
 	fmt.Println(a) // 20
+
+	// Arrays and Slices
+	names := [5]string{"haeum1", "haeum2", "haeum3"}
+	names[3] = "lalala"
+	names[4] = "lalala"
+	fmt.Println(names)
+
+	names2 := []string{"haeum1", "haeum2", "haeum3"}
+	names2 = append(names2, "lalala")
+	fmt.Println(names2)
 }
