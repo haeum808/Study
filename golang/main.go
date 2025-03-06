@@ -119,4 +119,12 @@ func main() {
 	names2 := []string{"haeum1", "haeum2", "haeum3"}
 	names2 = append(names2, "lalala")
 	fmt.Println(names2)
+
+	// Maps
+	joon := map[string]string{"name": "joon", "age": "27"}
+	fmt.Println(joon)
+
+	for key, value := range joon {
+		fmt.Println(key, value)
+	}
 }
