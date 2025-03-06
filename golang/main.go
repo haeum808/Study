@@ -50,6 +50,16 @@ func canIDrink(age int) bool {
 	return true
 }
 
+func canIDrink2(age int) bool {
+	switch koreanAge := age + 2; koreanAge {
+	case 10:
+		return false
+	case 18:
+		return true
+	}
+	return false
+}
+
 func main() {
 	something.SayHello()
 	// something.sayBye() -> 소문자 시작은 private 취급
@@ -80,4 +90,5 @@ func main() {
 	fmt.Println(result)
 
 	fmt.Println(canIDrink(16))
+	fmt.Println(canIDrink2(18))
 }
