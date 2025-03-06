@@ -43,6 +43,13 @@ func repeatMe(words ...string) {
 	fmt.Println(words)
 }
 
+func canIDrink(age int) bool {
+	if koreanAge := age + 2; koreanAge < 18 {
+		return false
+	}
+	return true
+}
+
 func main() {
 	something.SayHello()
 	// something.sayBye() -> 소문자 시작은 private 취급
@@ -71,4 +78,6 @@ func main() {
 
 	result := superAdd(1, 2, 3, 4, 5, 6)
 	fmt.Println(result)
+
+	fmt.Println(canIDrink(16))
 }
