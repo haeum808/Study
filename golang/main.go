@@ -60,6 +60,13 @@ func canIDrink2(age int) bool {
 	return false
 }
 
+// Structs
+type person struct {
+	name    string
+	age     int
+	favFood []string
+}
+
 func main() {
 	something.SayHello()
 	// something.sayBye() -> 소문자 시작은 private 취급
@@ -127,4 +134,12 @@ func main() {
 	for key, value := range joon {
 		fmt.Println(key, value)
 	}
+
+	// Structs
+	favFood := []string{"kimchi", "ramen"}
+	person := person{name: "haeum", age: 27, favFood: favFood}
+	fmt.Println(person)
+	fmt.Println(person.name)
+	fmt.Println(person.age)
+	fmt.Println(person.favFood)
 }
