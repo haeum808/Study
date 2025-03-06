@@ -91,4 +91,22 @@ func main() {
 
 	fmt.Println(canIDrink(16))
 	fmt.Println(canIDrink2(18))
+
+	// Pointers!
+	a := 2
+	b := a // 값 복사
+	a = 10
+	fmt.Println(a, b) // 10, 2
+
+	a2 := 2
+	b2 := &a2        // 메모리 주소 복사
+	fmt.Println(*b2) // 2
+	a = 5
+	fmt.Println(&a2, b2) // 0xc000016080, 0xc000016080
+	fmt.Println(*b2)     // 5
+
+	a3 := 2
+	b3 := &a3
+	*b3 = 20
+	fmt.Println(a) // 20
 }
