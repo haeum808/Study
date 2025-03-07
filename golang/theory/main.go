@@ -1,8 +1,8 @@
 package main
 
 import (
-	"Study/golang/something"
 	"fmt"
+	"something/something"
 	"strings"
 )
 
