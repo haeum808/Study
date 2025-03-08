@@ -11,7 +11,8 @@ func main() {
 	for _, person := range people {
 		go isSexy(person, channel)
 	}
-	for i:=0; i<len(people); i++ {
+	for i := 0; i < len(people); i++ {
+		fmt.Println("waiting for", i)
 		fmt.Println(<-channel)
 	}
 }
