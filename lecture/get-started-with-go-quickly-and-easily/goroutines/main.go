@@ -6,13 +6,14 @@ import (
 )
 
 func main() {
-	channel := make(chan bool)
-	people := [2]string{"haeum", "joon"}
+	channel := make(chan string)
+	people := [5]string{"haeum1", "joon1", "haeum2", "joon2", "haeum3"}
 	for _, person := range people {
 		go isSexy(person, channel)
 	}
-	fmt.Println(<-channel)
-	fmt.Println(<-channel)
+	for i:=0; i<len(people); i++ {
+		fmt.Println(<-channel)
+	}
 }
 
 func sexyCount(person string) {
@@ -22,8 +23,7 @@ func sexyCount(person string) {
 	}
 }
 
-func isSexy(person string, channel chan bool) {
-	time.Sleep(time.Second * 5)
-	fmt.Println(person)
-	channel <- true
+func isSexy(person string, channel chan string) {
+	time.Sleep(time.Second * 10)
+	channel <- person + " is sexy"
 }
