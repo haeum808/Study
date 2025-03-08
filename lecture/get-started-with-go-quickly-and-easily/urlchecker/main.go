@@ -6,8 +6,13 @@ import (
 	"net/http"
 )
 
+type result struct {
+	url    string
+	status string
+}
+
 func main() {
-	var results = make(map[string]string)
+	var channel = make(chan result)
 	urls := []string{
 		"https://www.airbnb.com/",
 		"https://www.google.com/",
@@ -20,26 +25,18 @@ func main() {
 		"https://academy.nomadcoders.co/",
 	}
 	for _, url := range urls {
-		result := "OK"
-		err :=hitURL(url)
-		if err != nil {
-			result = "FAILED"
-		}
-		results[url] = result
-	}
-	for url, result := range results {
-		fmt.Println(url, result)
+		go hitURL(url, channel)
 	}
 }
 
 var errRequestFailed = errors.New("Request failed")
 
-func hitURL(url string) error {
+func hitURL(url string, channel chan<- result) {
 	fmt.Println("Checking:", url)
 	resp, err := http.Get(url)
+	status := "OK"
 	if err != nil || resp.StatusCode >= 400 {
-		fmt.Println(err, resp.StatusCode)
-		return errRequestFailed
+		status = "FAILED"
 	}
-	return nil
+	channel <- result{url, status}
 }
