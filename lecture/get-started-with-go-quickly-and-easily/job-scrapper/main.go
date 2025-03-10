@@ -6,6 +6,7 @@ import (
 	"log"
 	"net/http"
 	"strconv"
+	"strings"
 )
 
 type extractedJob struct {
@@ -19,14 +20,19 @@ type extractedJob struct {
 var baseURL string = "https://www.saramin.co.kr/zf_user/search/recruit?&searchword=python"
 
 func main() {
+	var jobs []extractedJob
 	totalPages := getPages()
 
 	for i := 0; i < totalPages; i++ {
-		getPage(i)
+		extractedJobs := getPage(i)
+		jobs = append(jobs, extractedJobs...)
 	}
+
+	fmt.Println(jobs)
 }
 
-func getPage(page int) {
+func getPage(page int) []extractJob {
+	var jobs []extractJob
 	pageURL := baseURL + "&recruitPage=" + strconv.Itoa(page+1)
 	fmt.Println("Requesting", pageURL)
 	res, err := http.Get(pageURL)
@@ -41,13 +47,31 @@ func getPage(page int) {
 	searchCards := doc.Find(".item_recruit")
 
 	searchCards.Each(func(i int, card *goquery.Selection) {
-		id, _ := card.Attr("value")
-		title := card.Find(".area_job>h2").Text()
-		jobDate := card.Find(".job_date").Text()
-		jobCondition := card.Find(".job_condition").Text()
-		jobSector := card.Find(".job_sector").Text()
-		fmt.Println(id, title, jobDate, jobCondition, jobSector)
+		job := extractJob(card)
+		jobs = append(jobs, job)
 	})
+
+	return jobs
+}
+
+func extractJob(card *goquery.Selection) extractedJob {
+	id, _ := card.Attr("value")
+	title := cleanString(card.Find(".area_job>h2").Text())
+	jobDate := cleanString(card.Find(".job_date").Text())
+	jobCondition := cleanString(card.Find(".job_condition").Text())
+	jobSector := cleanString(card.Find(".job_sector").Text())
+	fmt.Println(id, title, jobDate, jobCondition, jobSector)
+	return extractedJob{
+		id: id,
+		title: title,
+		jobDate: jobDate,
+		jobCondition: jobCondition,
+		jobSector: jobSector,
+	}
+}
+
+func cleanString(str string) string {
+	return strings.Join(strings.Fields(strings.TrimSpace(str)), " ")
 }
 
 func getPages() int {
