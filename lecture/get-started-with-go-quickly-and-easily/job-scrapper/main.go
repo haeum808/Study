@@ -17,7 +17,7 @@ type extractedJob struct {
 	jobSector    string
 }
 
-var baseURL string = "https://www.saramin.co.kr/zf_user/search/recruit?&searchword=python"
+var baseURL = "https://www.saramin.co.kr/zf_user/search/recruit?&searchword=python"
 
 func main() {
 	var jobs []extractedJob
@@ -31,8 +31,8 @@ func main() {
 	fmt.Println(jobs)
 }
 
-func getPage(page int) []extractJob {
-	var jobs []extractJob
+func getPage(page int) []extractedJob {
+	var jobs []extractedJob
 	pageURL := baseURL + "&recruitPage=" + strconv.Itoa(page+1)
 	fmt.Println("Requesting", pageURL)
 	res, err := http.Get(pageURL)
