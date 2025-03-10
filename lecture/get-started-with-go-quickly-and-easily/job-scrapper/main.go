@@ -1,10 +1,12 @@
 package main
 
 import (
+	"encoding/csv"
 	"fmt"
 	"github.com/PuerkitoBio/goquery"
 	"log"
 	"net/http"
+	"os"
 	"strconv"
 	"strings"
 )
@@ -28,7 +30,27 @@ func main() {
 		jobs = append(jobs, extractedJobs...)
 	}
 
-	fmt.Println(jobs)
+	writeJobs(jobs)
+	fmt.Println("Done, extracted", len(jobs))
+}
+
+func writeJobs(jobs []extractedJob) {
+	file, err := os.Create("jobs.csv")
+	checkErr(err)
+
+	w := csv.NewWriter(file)
+	defer w.Flush()
+
+	headers := []string{"ID", "title", "jobDate", "jobCondition", "jobSector"}
+
+	wErr := w.Write(headers)
+	checkErr(wErr)
+
+	for _, job := range jobs {
+		jobSlice := []string{"https://www.saramin.co.kr/zf_user/jobs/relay/view?isMypage=no&rec_idx=" + job.id, job.title, job.jobDate, job.jobCondition, job.jobSector}
+		jwErr := w.Write(jobSlice)
+		checkErr(jwErr)
+	}
 }
 
 func getPage(page int) []extractedJob {
@@ -60,13 +82,12 @@ func extractJob(card *goquery.Selection) extractedJob {
 	jobDate := cleanString(card.Find(".job_date").Text())
 	jobCondition := cleanString(card.Find(".job_condition").Text())
 	jobSector := cleanString(card.Find(".job_sector").Text())
-	fmt.Println(id, title, jobDate, jobCondition, jobSector)
 	return extractedJob{
-		id: id,
-		title: title,
-		jobDate: jobDate,
+		id:           id,
+		title:        title,
+		jobDate:      jobDate,
 		jobCondition: jobCondition,
-		jobSector: jobSector,
+		jobSector:    jobSector,
 	}
 }
 
