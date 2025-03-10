@@ -23,10 +23,15 @@ var baseURL = "https://www.saramin.co.kr/zf_user/search/recruit?&searchword=pyth
 
 func main() {
 	var jobs []extractedJob
+	channel := make(chan []extractedJob)
 	totalPages := getPages()
 
 	for i := 0; i < totalPages; i++ {
-		extractedJobs := getPage(i)
+		go getPage(i, channel)
+	}
+
+	for i := 0; i < totalPages; i++ {
+		extractedJobs := <-channel
 		jobs = append(jobs, extractedJobs...)
 	}
 
@@ -34,26 +39,7 @@ func main() {
 	fmt.Println("Done, extracted", len(jobs))
 }
 
-func writeJobs(jobs []extractedJob) {
-	file, err := os.Create("jobs.csv")
-	checkErr(err)
-
-	w := csv.NewWriter(file)
-	defer w.Flush()
-
-	headers := []string{"ID", "title", "jobDate", "jobCondition", "jobSector"}
-
-	wErr := w.Write(headers)
-	checkErr(wErr)
-
-	for _, job := range jobs {
-		jobSlice := []string{"https://www.saramin.co.kr/zf_user/jobs/relay/view?isMypage=no&rec_idx=" + job.id, job.title, job.jobDate, job.jobCondition, job.jobSector}
-		jwErr := w.Write(jobSlice)
-		checkErr(jwErr)
-	}
-}
-
-func getPage(page int) []extractedJob {
+func getPage(page int, mainChannel chan<- []extractedJob) {
 	var jobs []extractedJob
 	channel := make(chan extractedJob)
 	pageURL := baseURL + "&recruitPage=" + strconv.Itoa(page+1)
@@ -78,7 +64,26 @@ func getPage(page int) []extractedJob {
 		jobs = append(jobs, job)
 	}
 
-	return jobs
+	mainChannel <- jobs
+}
+
+func writeJobs(jobs []extractedJob) {
+	file, err := os.Create("jobs.csv")
+	checkErr(err)
+
+	w := csv.NewWriter(file)
+	defer w.Flush()
+
+	headers := []string{"ID", "title", "jobDate", "jobCondition", "jobSector"}
+
+	wErr := w.Write(headers)
+	checkErr(wErr)
+
+	for _, job := range jobs {
+		jobSlice := []string{"https://www.saramin.co.kr/zf_user/jobs/relay/view?isMypage=no&rec_idx=" + job.id, job.title, job.jobDate, job.jobCondition, job.jobSector}
+		jwErr := w.Write(jobSlice)
+		checkErr(jwErr)
+	}
 }
 
 func extractJob(card *goquery.Selection, channel chan<- extractedJob) {
