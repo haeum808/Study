@@ -40,4 +40,8 @@ void main() {
     {'name': 'haeum', 'xp': 199993.999},
     {'name': 'haeum2', 'xp': 199993.999},
   ];
+
+  // Sets
+  var numbers3 = {1, 2, 3, 4};
+  Set<int> numbers4 = {1, 2, 3, 4};
 }
