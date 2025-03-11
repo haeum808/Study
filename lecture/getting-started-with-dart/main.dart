@@ -21,4 +21,14 @@ void main() {
   if (name3 is int) {
     name3.isOdd;
   }
+
+  // Nullable Variables
+  String? name4 = 'haeum';
+  name4 = null;
+
+  if (name4 != null) {
+    name4.isNotEmpty;
+  }
+
+  name4?.isNotEmpty;
 }
