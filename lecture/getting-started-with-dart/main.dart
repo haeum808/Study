@@ -45,4 +45,7 @@ void main() {
   name9 = 'haeum';
   name9 = 'haeum2';
   name10 = 'haeum';
+
+  // Constant Variables
+  const name11 = 'haeum'; // compile-time constant
 }
