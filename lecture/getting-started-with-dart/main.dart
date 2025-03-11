@@ -37,4 +37,12 @@ void main() {
   String name6 = 'haeum'; // 변수
   final String name7 = ''; // 수정 불가능한 변수
   final name8 = ''; // 수정 불가능한 변수
+
+  // Late Variables
+  late var name9;
+  late final String name10;
+  // do something, go to api
+  name9 = 'haeum';
+  name9 = 'haeum2';
+  name10 = 'haeum';
 }
