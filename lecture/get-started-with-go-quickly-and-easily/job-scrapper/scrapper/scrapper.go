@@ -88,10 +88,10 @@ func writeJobs(jobs []extractedJob) {
 
 func extractJob(card *goquery.Selection, channel chan<- extractedJob) {
     id, _ := card.Attr("value")
-    title := cleanString(card.Find(".area_job>h2").Text())
-    jobDate := cleanString(card.Find(".job_date").Text())
-    jobCondition := cleanString(card.Find(".job_condition").Text())
-    jobSector := cleanString(card.Find(".job_sector").Text())
+    title := CleanString(card.Find(".area_job>h2").Text())
+    jobDate := CleanString(card.Find(".job_date").Text())
+    jobCondition := CleanString(card.Find(".job_condition").Text())
+    jobSector := CleanString(card.Find(".job_sector").Text())
     channel <- extractedJob{
         id:           id,
         title:        title,
@@ -101,7 +101,8 @@ func extractJob(card *goquery.Selection, channel chan<- extractedJob) {
     }
 }
 
-func cleanString(str string) string {
+// CleanString cleans a string
+func CleanString(str string) string {
     return strings.Join(strings.Fields(strings.TrimSpace(str)), " ")
 }
 
