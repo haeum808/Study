@@ -19,4 +19,14 @@ void main() {
   var age2 = 10;
   var greeting = "Hello everyone, my name is $name2 and I'm ${age2 + 2}";
   print(greeting);
+
+  // Collection For
+  var oldFriends = ['haeum', 'haeum2'];
+  var newFriends = [
+    'haeum3',
+    'haeum4',
+    'haeum5',
+    for (var friend in oldFriends) "Best $friend",
+  ];
+  print(newFriends);
 }
