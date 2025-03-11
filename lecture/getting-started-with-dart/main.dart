@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 void main() {
   // The Var Keyword
   var name = '해음'; // 주로 지역변수, 타입 추론
