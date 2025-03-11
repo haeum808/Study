@@ -1,0 +1,40 @@
+# IDE specific files
+.idea/
+*.iml
+*.ipr
+*.iws
+.fleet/
+
+# Kotlin sessions
+.kotlin/sessions/
+
+# Build artifacts
+build/
+out/
+bin/
+*.class
+*.jar
+*.war
+*.ear
+
+# Gradle files
+.gradle/
+gradle-app.setting
+!gradle-wrapper.jar
+
+# Logs and databases
+*.log
+*.sql
+*.sqlite
+
+# System Files
+.DS_Store
+Thumbs.db
+
+# Local configuration files
+*.properties
+*.env
+
+# Kotlin specific files
+*.kapt
+*.kotlin_module
