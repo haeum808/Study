@@ -31,4 +31,10 @@ void main() {
   }
 
   name4?.isNotEmpty;
+
+  // Final Variables
+  var name5 = 'haeum'; // 변수
+  String name6 = 'haeum'; // 변수
+  final String name7 = ''; // 수정 불가능한 변수
+  final name8 = ''; // 수정 불가능한 변수
 }
