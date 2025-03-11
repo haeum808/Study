@@ -29,4 +29,15 @@ void main() {
     for (var friend in oldFriends) "Best $friend",
   ];
   print(newFriends);
+
+  // Maps
+  var players = {'name': 'haeum', 'xp': 19.99, 'superpower': false};
+  Map<int, bool> players2 = {1: true, 2: false, 3: true};
+  Map<List<int>, bool> players3 = {
+    [1, 2, 3, 5]: true,
+  };
+  List<Map<String, Object>> players4 = [
+    {'name': 'haeum', 'xp': 199993.999},
+    {'name': 'haeum2', 'xp': 199993.999},
+  ];
 }
