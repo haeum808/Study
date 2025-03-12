@@ -100,6 +100,19 @@ class Player6 {
   }
 }
 
+// Cascade Notation
+class Player7 {
+  String name;
+  int xp;
+  String team;
+
+  Player7({required this.name, required this.xp, required this.team});
+
+  void sayHello() {
+    print("Hi my name is $name");
+  }
+}
+
 void main() {
   // Your First Data Class
   var player = Player();
@@ -130,4 +143,13 @@ void main() {
     var player = Player6.fromJson(playerJson);
     player.sayHello();
   });
+
+  // Cascade Notation
+  var player7 = Player7(name: 'haeum', xp: 1200, team: 'red');
+  var potato =
+      player7
+        ..name = 'las'
+        ..xp = 1200000
+        ..team = 'blue'
+        ..sayHello();
 }
