@@ -157,6 +157,31 @@ class Coach extends Human {
   }
 }
 
+// Inheritance
+class Human2 {
+  final String name;
+
+  Human2({required this.name});
+
+  void sayHello() {
+    print("Hi my name is $name");
+  }
+}
+
+enum Tema2 { red, blue }
+
+class Player10 extends Human2 {
+  final Tema2 team;
+
+  Player10({required this.team, required String name}) : super(name: name);
+
+  @override
+  void sayHello() {
+    super.sayHello();
+    print('and I play for ${team}');
+  }
+}
+
 void main() {
   // Your First Data Class
   var player = Player();
@@ -202,4 +227,8 @@ void main() {
 
   // Abstract Classes
   var coach = Coach();
+
+  // Inheritance
+  var player10 = Player10(team: Tema2.red, name: 'haeum');
+  player10.sayHello();
 }
