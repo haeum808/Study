@@ -130,6 +130,33 @@ class Player8 {
   }
 }
 
+// Abstract Classes
+abstract class Human {
+  void walk();
+}
+
+class Player9 extends Human {
+  String name;
+  XPLevel xp;
+  Team team;
+
+  Player9({required this.name, required this.xp, required this.team});
+
+  void sayHello() {
+    print("Hi my name is $name");
+  }
+
+  void walk() {
+    print('im walking');
+  }
+}
+
+class Coach extends Human {
+  void walk() {
+    print('the coach is walking');
+  }
+}
+
 void main() {
   // Your First Data Class
   var player = Player();
@@ -172,4 +199,7 @@ void main() {
 
   // Enums
   var player8 = Player8(name: 'haeum', xp: XPLevel.medium, team: Team.red);
+
+  // Abstract Classes
+  var coach = Coach();
 }
