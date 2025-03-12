@@ -9,6 +9,13 @@ void main() {
   // Optional Positional Parameter
   var results = sayHello4('haeum', 12);
   print(results);
+
+  // QQ Operator
+  capitalizeName3('haeum');
+  capitalizeName3(null);
+
+  String? name;
+  name ??= 'haeum';
 }
 
 // Defining a Function
@@ -38,3 +45,16 @@ String sayHello3({
 // Optional Positional Parameters
 String sayHello4(String name, int age, [String? country = 'cuba']) =>
     'Hello $name, you are $age years old from $country';
+
+// QQ Operator
+String capitalizeName1(String? name) {
+  if (name != null) {
+    return name.toUpperCase();
+  }
+  return 'ANON';
+}
+
+String capitalizeName2(String? name) =>
+    name != null ? name.toUpperCase() : 'ANON';
+
+String capitalizeName3(String? name) => name?.toUpperCase() ?? "";
