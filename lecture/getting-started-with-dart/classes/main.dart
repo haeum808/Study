@@ -1,4 +1,6 @@
 // Your First Data Class
+import '../functions/main.dart';
+
 class Player {
   final String name = 'haeum';
   int xp = 1500;
@@ -82,6 +84,22 @@ class Player5 {
   }
 }
 
+// Recap
+class Player6 {
+  final String name;
+  int xp;
+  String team;
+
+  Player6.fromJson(Map<String, dynamic> playerJson)
+    : name = playerJson['name'],
+      xp = playerJson['xp'],
+      team = playerJson['team'];
+
+  void sayHello() {
+    print("Hi my name is $name");
+  }
+}
+
 void main() {
   // Your First Data Class
   var player = Player();
@@ -101,4 +119,15 @@ void main() {
   // Named Constructors
   var bluePlayer = Player5.createBluePlayer(name: 'haeum', age: 21);
   var redPlayer = Player5.createRedPlayer('haeum', 23);
+
+  // Recap
+  var apiData = [
+    {"name": "haeum1", "team": "red", "xp": 0},
+    {"name": "haeum2", "team": "red", "xp": 0},
+    {"name": "haeum3", "team": "red", "xp": 0},
+  ];
+  apiData.forEach((playerJson) {
+    var player = Player6.fromJson(playerJson);
+    player.sayHello();
+  });
 }
