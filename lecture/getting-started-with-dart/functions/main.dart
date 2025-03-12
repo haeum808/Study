@@ -16,6 +16,11 @@ void main() {
 
   String? name;
   name ??= 'haeum';
+
+  // Tyepdef
+  print(reverseListOfNumbers([1, 2, 3]));
+
+  sayHi({"name": "haeum"});
 }
 
 // Defining a Function
@@ -58,3 +63,17 @@ String capitalizeName2(String? name) =>
     name != null ? name.toUpperCase() : 'ANON';
 
 String capitalizeName3(String? name) => name?.toUpperCase() ?? "";
+
+// Typedef
+typedef ListOfInts = List<int>;
+
+ListOfInts reverseListOfNumbers(ListOfInts list) {
+  var reversed = list.reversed;
+  return reversed.toList();
+}
+
+typedef UserInfo = Map<String, String>;
+
+String sayHi(UserInfo userInfo) {
+  return "Hi ${userInfo['name']}";
+}
