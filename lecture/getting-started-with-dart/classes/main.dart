@@ -113,6 +113,23 @@ class Player7 {
   }
 }
 
+// Enums
+enum Team { red, blue }
+
+enum XPLevel { beginner, medium, pro }
+
+class Player8 {
+  String name;
+  XPLevel xp;
+  Team team;
+
+  Player8({required this.name, required this.xp, required this.team});
+
+  void sayHello() {
+    print("Hi my name is $name");
+  }
+}
+
 void main() {
   // Your First Data Class
   var player = Player();
@@ -152,4 +169,7 @@ void main() {
         ..xp = 1200000
         ..team = 'blue'
         ..sayHello();
+
+  // Enums
+  var player8 = Player8(name: 'haeum', xp: XPLevel.medium, team: Team.red);
 }
