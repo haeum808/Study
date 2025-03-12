@@ -182,6 +182,31 @@ class Player10 extends Human2 {
   }
 }
 
+// Mixins
+mixin class Strong {
+  final double strengthLevel = 1500.99;
+}
+
+mixin class QuickRunner {
+  void runQuick() {
+    print("ruuuuuuuun!");
+  }
+}
+
+mixin class Tall {
+  final double height = 1.99;
+}
+
+class Player11 with Strong, QuickRunner, Tall {
+  final Tema2 team;
+
+  Player11({required this.team});
+}
+
+class Horse with Strong, QuickRunner {}
+
+class Kid with QuickRunner {}
+
 void main() {
   // Your First Data Class
   var player = Player();
@@ -231,4 +256,8 @@ void main() {
   // Inheritance
   var player10 = Player10(team: Tema2.red, name: 'haeum');
   player10.sayHello();
+
+  // Mixins
+  var player11 = Player11(team: Tema2.red);
+  player11.runQuick();
 }
