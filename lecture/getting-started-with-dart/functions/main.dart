@@ -5,6 +5,10 @@ void main() {
   // Named Parameters
   sayHello2(); // default value
   sayHello3(age: 19, country: 'cuba', name: 'haeum'); // required
+
+  // Optional Positional Parameter
+  var results = sayHello4('haeum', 12);
+  print(results);
 }
 
 // Defining a Function
@@ -30,3 +34,7 @@ String sayHello3({
 }) {
   return "Hello $name, you are $age, and you come from $country";
 }
+
+// Optional Positional Parameters
+String sayHello4(String name, int age, [String? country = 'cuba']) =>
+    'Hello $name, you are $age years old from $country';
