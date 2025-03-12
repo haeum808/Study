@@ -34,6 +34,25 @@ class Player3 {
   }
 }
 
+// Named Constructors
+class Player4 {
+  final String name;
+  int xp;
+  String team;
+  int age;
+
+  Player4({
+    required this.name,
+    required this.xp,
+    required this.team,
+    required this.age,
+  });
+
+  void sayHello() {
+    print("Hi my name is $name");
+  }
+}
+
 void main() {
   // Your First Data Class
   var player = Player();
@@ -45,4 +64,8 @@ void main() {
 
   var player3 = Player3('haeum', 1500);
   player3.sayHello();
+
+  // Named Constructors
+  var player4 = Player4(name: 'haeum', xp: 2500, team: 'blue', age: 21);
+  player4.sayHello();
 }
