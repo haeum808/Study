@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project version="4">
-  <component name="ProjectModuleManager">
-    <modules>
-      <module fileurl="file://$PROJECT_DIR$/creating_a_webtoon_app_with_flutter.iml" filepath="$PROJECT_DIR$/creating_a_webtoon_app_with_flutter.iml" />
-      <module fileurl="file://$PROJECT_DIR$/android/creating_a_webtoon_app_with_flutter_android.iml" filepath="$PROJECT_DIR$/android/creating_a_webtoon_app_with_flutter_android.iml" />
-    </modules>
-  </component>
-</project>
