@@ -15,7 +15,9 @@ class _MyWidgetState extends State<MyApp> {
   int counter = 0;
 
   void onClicked() {
-    counter = counter + 1;
+    setState(() {
+      counter = counter + 1;
+    });
   }
 
   @override
