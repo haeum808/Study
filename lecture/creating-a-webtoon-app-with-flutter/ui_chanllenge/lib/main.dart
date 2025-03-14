@@ -9,28 +9,30 @@ class Player {
 void main() {
   var haeum = Player(name: 'haeum');
   haeum.name;
-  runApp(App());
+  runApp(const App());
 }
 
 class App extends StatelessWidget {
+  const App({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        backgroundColor: Color(0xFF181818),
+        backgroundColor: const Color(0xFF181818),
         body: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 40),
+          padding: const EdgeInsets.symmetric(horizontal: 40),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(height: 100),
+              const SizedBox(height: 100),
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
-                      Text(
+                      const Text(
                         'Hey, Selena',
                         style: TextStyle(
                           color: Colors.white,
@@ -49,7 +51,7 @@ class App extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(height: 120),
+              const SizedBox(height: 120),
               Text(
                 'Total Balance',
                 style: TextStyle(
@@ -57,8 +59,8 @@ class App extends StatelessWidget {
                   fontSize: 22,
                 ),
               ),
-              SizedBox(height: 5),
-              Text(
+              const SizedBox(height: 5),
+              const Text(
                 '\$5 194 482',
                 style: TextStyle(
                   color: Colors.white,
@@ -66,7 +68,7 @@ class App extends StatelessWidget {
                   fontWeight: FontWeight.w600,
                 ),
               ),
-              SizedBox(height: 30),
+              const SizedBox(height: 30),
               Row(
                 children: [
                   Container(
@@ -74,8 +76,8 @@ class App extends StatelessWidget {
                       color: Colors.amber,
                       borderRadius: BorderRadius.circular(45),
                     ),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(
+                    child: const Padding(
+                      padding: EdgeInsets.symmetric(
                         vertical: 20,
                         horizontal: 50,
                       ),
