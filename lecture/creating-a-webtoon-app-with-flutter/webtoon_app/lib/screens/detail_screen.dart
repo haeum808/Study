@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:webtoon_app/main.dart';
 
 class DetailScreen extends StatelessWidget {
   final String title, thumb, id;
