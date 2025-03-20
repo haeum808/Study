@@ -35,3 +35,18 @@ console.log(daysOfWeek[4]); // Get Item from Array
 console.log(daysOfWeek);
 daysOfWeek.push("sun") // Add one more day to the array
 console.log(daysOfWeek);
+
+// Objects
+const player = {
+    name: "haeum",
+    points: 10,
+    fat: true,
+};
+
+console.log(player.name);
+console.log(player["name"]);
+
+player.fat = false;
+player.lastName = "potato"
+player.points = player.points + 15;
+console.log(player);
