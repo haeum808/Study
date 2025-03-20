@@ -40,7 +40,7 @@ console.log(daysOfWeek);
 const player = {
     name: "haeum",
     points: 10,
-    fat: true,
+    fat: true,    
 };
 
 console.log(player.name);
@@ -50,3 +50,33 @@ player.fat = false;
 player.lastName = "potato"
 player.points = player.points + 15;
 console.log(player);
+
+// Functions
+function sayHello(nameOfPerson, age) {
+    console.log("Hello my name is " + nameOfPerson + " and I'm " + age);
+}
+
+sayHello("haeum", 10);
+sayHello("haeum1", 23);
+sayHello("haeum2", 21);
+
+function plus(firstNumber, secondNumber) {
+    console.log(a + b);
+}
+
+function divide(a, b) {
+    console.log(a / b);
+}
+
+plus(8, 60);
+divide(98, 20);
+
+const player2 = {
+    name: "haeum",
+    sayHello: function(otherPersonsName) {
+        console.log("hello! " + otherPersonsName + " nice to meet you");
+    }
+};
+
+console.log(player2.name);
+player2.sayHello("haeum2");
