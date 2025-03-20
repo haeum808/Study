@@ -20,3 +20,9 @@ console.log("hello " + myName2);
 
 myName2 = "haeum808";
 console.log("your new name is " + myName2);
+
+// Booleans
+const amIFat = true;
+const amIFat2 = null;
+let something; // undefined
+console.log(amIFat, amIFat2, something);
