@@ -26,3 +26,12 @@ const amIFat = true;
 const amIFat2 = null;
 let something; // undefined
 console.log(amIFat, amIFat2, something);
+
+// Arrays
+const daysOfWeek = ["mon", "tue", "wed", "thu", "fri", "sat"];
+
+console.log(daysOfWeek[4]); // Get Item from Array
+
+console.log(daysOfWeek);
+daysOfWeek.push("sun") // Add one more day to the array
+console.log(daysOfWeek);
