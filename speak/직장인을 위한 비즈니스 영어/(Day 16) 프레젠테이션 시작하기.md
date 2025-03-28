@@ -17,4 +17,15 @@ Please hold your questions until the end.
 
 ## 기타
 
+diversity
+- 다양성
 
+<br>
+
+jump in
+- 뛰어들다; 끼어들다; 말하다
+
+<br>
+
+cover
+- 다루다; 살펴보다; 알아보다
