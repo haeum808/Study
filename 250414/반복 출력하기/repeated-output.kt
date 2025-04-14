@@ -1,6 +1,10 @@
 fun main() {
     val rowNum = readLine()!!.toInt()
-	repeat(rowNum) {
+	printString(rowNum)
+}
+
+fun printString(count: Int) {
+	repeat(count) {
 		println("12345^&*()_")
 	}
 }
