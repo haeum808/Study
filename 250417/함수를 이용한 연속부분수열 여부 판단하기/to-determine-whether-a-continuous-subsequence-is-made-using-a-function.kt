@@ -14,12 +14,8 @@ fun isContinuousSubsequence(a: List<Int>, b: List<Int>): Boolean {
     if (a.size < b.size) return false
 
     for (i in 0..(a.size - b.size)) {
-        if (isAllSame(a.slice(i until i + b.size), b)) return true
+        if (a.slice(i until i + b.size) == b) return true
     }
 
     return false
-}
-
-fun isAllSame(a: List<Int>, b: List<Int>): Boolean {
-    return a == b
 }
