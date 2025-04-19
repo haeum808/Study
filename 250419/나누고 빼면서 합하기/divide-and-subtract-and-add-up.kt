@@ -1,6 +1,6 @@
 fun main() {
     val (n, m) = readLine()!!.split(" ").map { it.toInt() }
-    val arr = listOf(0) + readLine()!!.split(" ").map { it.toInt() }
+    val arr = listOf(0) + readLine()!!.split(" ").filter { it.isNotBlank() }.map { it.toInt() }
     var cnt = m
     var result = arr[1]
 
