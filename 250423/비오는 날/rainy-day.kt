@@ -30,8 +30,19 @@ fun main() {
             result = weatherForecast
         } else if (result != null && 
             weatherForecast.weather == "Rain" &&
-            weatherForecast.year.toInt() < result.year.toInt() &&
-            weatherForecast.month.toInt() < result.month.toInt() &&
+            weatherForecast.year.toInt() < result.year.toInt()
+        ) {
+            result = weatherForecast
+        } else if (result != null && 
+            weatherForecast.weather == "Rain" &&
+            weatherForecast.year.toInt() == result.year.toInt() &&
+            weatherForecast.month.toInt() < result.month.toInt()
+        ) {
+            result = weatherForecast
+        } else if (result != null && 
+            weatherForecast.weather == "Rain" &&
+            weatherForecast.year.toInt() == result.year.toInt() &&
+             weatherForecast.month.toInt() == result.month.toInt() &&
             weatherForecast.day.toInt() < result.day.toInt()
         ) {
             result = weatherForecast
