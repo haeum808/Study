@@ -1,10 +1,14 @@
 fun main() {
     val (m1, d1, m2, d2) = readln().split(" ").map { it.toInt() }
-    val a = readln()
-    var result1 = calculateDayCount(m1, d1) 
-    var result2 = calculateDayCount(m2, d2) + findWeek(a)
+    val a = readLine()!!
 
-    println((result2 - result1) / 7)
+    val startDayCount = getDayCountUntil(m1, d1)
+    val endDayCount = getDayCountUntil(m2, d2)
+    val targetDayOffset = findWeek(a)
+
+    val result = (endDayCount - startDayCount + targetDayOffset) / 7
+
+    println(result)
 }
 
 fun findWeek(week: String): Int {
@@ -16,11 +20,11 @@ fun findWeek(week: String): Int {
         "Fri" -> 4
         "Sat" -> 5
         "Sun" -> 6
-        else -> throw Exception()
+        else -> throw Exception("Invalid day")
     }
 }
 
-fun calculateDayCount(month: Int, day: Int): Int {
+fun getDayCountUntil(month: Int, day: Int): Int {
     val daysInMonth = listOf(31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31)
     return daysInMonth.take(month - 1).sum() + day
 }
