@@ -1,17 +1,19 @@
 fun main() {
     val (n, k) = readln().split(" ").map { it.toInt() }
-    val a = IntArray(n)
-    val b = IntArray(n)
+    val a = IntArray(n + 1)
+    val b = IntArray(n + 1)
     for (i in 0 until k) {
         val values = readln().split(" ").map { it.toInt() }
-        a[i] = values[0] - 1
-        b[i] = values[1] - 1
+        a[i] = values[0]
+        b[i] = values[1]
     }
-    var result = 0
+    var result = IntArray(n + 1)
 
     for (i in 0 until k) {
-        result = maxOf(result, b[i] - a[i] + 1) 
+        for (j in a[i]..b[i]) {
+            result[j] += 1
+        }
     }
 
-    println(result)
+    println(result.maxOf { it })
 }
