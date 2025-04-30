@@ -1,12 +1,16 @@
 fun main() {
     val (m1, d1, m2, d2) = readln().split(" ").map { it.toInt() }
-    val a = readLine()!!
-
+    val a = findWeek(readLine()!!)
+    
+    var result = 0
     val startDayCount = getDayCountUntil(m1, d1)
     val endDayCount = getDayCountUntil(m2, d2)
-    val targetDayOffset = findWeek(a)
 
-    val result = (endDayCount - startDayCount + targetDayOffset) / 7
+    for (day in (startDayCount + a)..endDayCount) {
+        if (a == day % 7) {
+            result++
+        }
+    }
 
     println(result)
 }
