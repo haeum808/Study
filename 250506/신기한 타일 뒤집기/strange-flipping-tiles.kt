@@ -16,15 +16,15 @@ fun main() {
         val (x, c) = commands[it]
 
         if (c == 'L') {
-            for (i in current - x until current) {
+            for (i in current - x + 1 .. current) {
                 result[i] = 1
             }
-            current -= x
+            current += -x + 1
         } else {
-            for (i in current until current + x) {
+            for (i in current .. current + x - 1) {
                 result[i] = 2
             }
-            current += x
+            current += x - 1
         }
     }
 
